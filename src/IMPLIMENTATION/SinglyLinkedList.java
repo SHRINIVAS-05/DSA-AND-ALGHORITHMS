@@ -3,6 +3,7 @@ package IMPLIMENTATION;
 public class SinglyLinkedList {
 
 	private ListNode head;
+	private int length;
 
 	private static class ListNode {
 
@@ -17,6 +18,11 @@ public class SinglyLinkedList {
 
 	public SinglyLinkedList() {
 		this.head = null;
+		this.length=1;
+	}
+	public int length()
+	{
+		return length;
 	}
 
 	// Inserting Element at end of Singly LinkedList
@@ -31,6 +37,7 @@ public class SinglyLinkedList {
 			current = current.next;
 		}
 		current.next = NewNode;
+		length++;
 	}
 
 	// Inserting element at first of the SinglyLinkedList
@@ -38,6 +45,7 @@ public class SinglyLinkedList {
 		ListNode NewNode = new ListNode(data);
 		NewNode.next = head;
 		head = NewNode;
+		length++;
 	}
 
 	// Inserting Element at Given any position of SinglyLinkedList
@@ -57,6 +65,7 @@ public class SinglyLinkedList {
 		ListNode current=previous.next;
 		NewNode.next=current;
 		previous.next=NewNode;
+		length++;
 	}
 	
 	// Delete End element in Singly Linked List
@@ -73,7 +82,9 @@ public class SinglyLinkedList {
 			current=current.next;
 		}
 		previous.next=null;
+		length--;
 		return current;
+		
 	}
 	
 	//Delete First Element in Singly LinkedList
@@ -84,6 +95,7 @@ public class SinglyLinkedList {
 		ListNode current=head;
 		head=head.next;
 		current.next=null;
+		length--;
 		return current;
 	}
 	
@@ -104,10 +116,12 @@ public class SinglyLinkedList {
 			count++;
 		}
 		previous.next=current.next;
+		length--;
 		}
 		return current;
 	}
 
+	
 	public void display() {
 		ListNode current = head;
 		while (current != null) {
@@ -156,14 +170,15 @@ public class SinglyLinkedList {
 //		System.out.println("after delete");
 //		list.display();
 //		System.out.println("Deleted Element is --> "+deleteFirst2.data);
-//		
+System.out.println(list.length);
+
 		list.display();
 		ListNode deletePosition = list.deletePosition(4);
 		System.out.println("Delete element at given position");
 		System.out.println("Deleted Element is deletePosition--> "+deletePosition.data);
 
 		list.display();
-		list.display();
+		System.out.println(list.length);
 
 	}
 
