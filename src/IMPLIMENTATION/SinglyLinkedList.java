@@ -163,6 +163,7 @@ public class SinglyLinkedList {
 		System.out.println("Deleted Element is deletePosition--> "+deletePosition.data);
 
 		list.display();
+		list.display();
 
 	}
 
